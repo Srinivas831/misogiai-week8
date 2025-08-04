@@ -1,0 +1,141 @@
+Q1. What is a Support Vector Machine (SVM)? Explain its primary objective in classification tasks.
+A Support Vector Machine (SVM) is a supervised machine learning algorithm primarily used for classification (and also regression). Its objective is to find the optimal hyperplane that best separates data points of different classes with the maximum margin, i.e., the largest possible distance between the hyperplane and the nearest data points from each class.
+
+Q2. Define the following terms in the context of SVM:
+Hyperplane: A decision boundary that separates data points of different classes. In 2D, it's a line; in 3D, it's a plane.
+
+Support Vectors: Data points closest to the hyperplane. These are critical because they directly affect the position and orientation of the hyperplane.
+
+Margin: The distance between the hyperplane and the nearest support vectors from each class. SVM aims to maximize this.
+
+Q3. Why does SVM aim to maximize the margin? How does it affect model generalization?
+Maximizing the margin increases the robustness of the model by reducing overfitting. A larger margin implies that the model is more confident about its classification, leading to better generalization on unseen data.
+
+Q4. What is the difference between a hard margin and a soft margin in SVM?
+Hard Margin: Assumes the data is perfectly linearly separable. It does not allow any misclassification.
+
+Soft Margin: Allows some misclassification for better generalization. It introduces a penalty for misclassified points, controlled by the hyperparameter C.
+
+Q5. Explain the concept of the kernel trick. Why is it useful in SVM?
+The kernel trick is a technique that transforms data into a higher-dimensional space without explicitly computing the transformation. It allows SVM to create non-linear decision boundaries using functions like RBF or polynomial kernels, making SVM effective for non-linearly separable data.
+
+Q6. Differentiate between the following kernel types:
+Linear Kernel: 
+𝐾
+(
+𝑥
+,
+𝑥
+′
+)
+=
+𝑥
+𝑇
+𝑥
+′
+K(x,x 
+′
+ )=x 
+T
+ x 
+′
+ 
+Used when data is linearly separable.
+
+Polynomial Kernel: 
+𝐾
+(
+𝑥
+,
+𝑥
+′
+)
+=
+(
+𝑥
+𝑇
+𝑥
+′
++
+𝑐
+)
+𝑑
+K(x,x 
+′
+ )=(x 
+T
+ x 
+′
+ +c) 
+d
+ 
+Captures polynomial relationships between features.
+
+RBF (Radial Basis Function) Kernel: 
+𝐾
+(
+𝑥
+,
+𝑥
+′
+)
+=
+exp
+⁡
+(
+−
+𝛾
+∣
+∣
+𝑥
+−
+𝑥
+′
+∣
+∣
+2
+)
+K(x,x 
+′
+ )=exp(−γ∣∣x−x 
+′
+ ∣∣ 
+2
+ )
+Captures complex, non-linear patterns by measuring similarity.
+
+Q7. What do the hyperparameters C and gamma control in an SVM model?
+C (Regularization parameter): Controls the trade-off between achieving a low error on training data and maximizing the margin.
+
+High C → less margin, fewer misclassifications (risk overfitting)
+
+Low C → larger margin, more tolerance to misclassifications (better generalization)
+
+Gamma (only for RBF/Polynomial): Defines how far the influence of a single training point reaches.
+
+High gamma → small radius of influence → more complex model
+
+Low gamma → larger radius → smoother decision boundary
+
+Q8. Give two real-world use cases of SVM and briefly explain how SVM is useful in those scenarios.
+Email Spam Detection: SVM can classify emails as spam or not spam by finding the optimal boundary between spam-related keywords and normal messages.
+
+Image Classification: In digit recognition or facial recognition, SVM helps classify images by learning the boundary between different image classes using pixel data or features.
+
+Q9. When would you prefer to use:
+Linear kernel: When the data is linearly separable or when the number of features is much larger than the number of samples (e.g., text classification).
+
+RBF kernel: When data is not linearly separable and you need a flexible model that can capture complex decision boundaries.
+
+Q10. List two advantages and two disadvantages of using SVM.
+Advantages:
+
+Effective in high-dimensional spaces.
+
+Works well with a clear margin of separation.
+
+Disadvantages:
+
+Not suitable for very large datasets (slow training).
+
+Less effective when data is heavily noisy or overlapping.
